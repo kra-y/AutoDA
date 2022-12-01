@@ -1,0 +1,45 @@
+---
+title: "Exploratory Data Analysis of "
+runningheader: " R Markdown" # only for pdf output
+subtitle: "An implementation in R Markdown" # only for html output
+author: "Keith Araneo-Yowell"
+date: "`r Sys.Date()`"
+output:
+  bookdown::tufte_book2:
+    citation_package: natbib
+    latex_engine: xelatex
+    keep_tex: true
+bibliography: repeat-analysis.bib
+link-citations: yes
+---
+
+```{r setup, include=FALSE}
+library(tufte)
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(cache.extra = packageVersion('tufte'))
+options(htmltools.dir.version = FALSE)
+```
+
+# Introduction
+
+
+```{r,include = FALSE}
+list.of.packages<-c("tidyverse","gtools","lubridate","purrr","tables","janitor","vcd","scales","kableExtra","stringr")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+sapply(list.of.packages, require, character.only = TRUE)
+
+Mode<-function(x){
+  x<-x[!is.na(x)]
+  ux<-unique(x)
+  ux[which.max(tabulate(match(x,ux)))]
+}
+
+```
+
+
+```{r}
+SampleData<-read.csv("/Users/kraymac/Documents/R Projects/WSU Dashboards/5-year Compiled Data - Hired within last year.csv")
+
+
+```
