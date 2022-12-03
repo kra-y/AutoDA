@@ -17,3 +17,6 @@ class(data1[,1])
 Character_No_Info<-function(x){
   
 }
+
+getwd()
+setwd("/Users/kraymac/Documents/R Projects/AutoDA/")
